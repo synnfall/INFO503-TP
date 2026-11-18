@@ -94,14 +94,28 @@ bool estTasVide(tas t)
     return t[0].val == 0;
 }
 
+void afficheTasHorizontal(tas t, int pos, int ecart)
+{
+    if (pos > t->val)
+    {
+        return;
+    }
+    afficheTasHorizontal(t,pos*2+1,ecart+1);
+    for (int i = 0; i < ecart; i++)
+    {
+        printf("\t");
+    }
+    printf("%d\n", t[pos].val);
+    afficheTasHorizontal(t,pos*2,ecart+1);
+}
 
 void afficherTas(tas t)
 {
-    for (int i = 1; i <= t[0].val; i++)
-    {
-        printf("%d ", t[i].val);
-    }
+    afficheTasHorizontal(t, 3,1);
+    printf("%d\n", t[1].val);
+    afficheTasHorizontal(t, 2,1);
 }
+
 tas creerTas(int taille)
 {
     tas t = (tas)malloc((taille+1)*sizeof(noeud));

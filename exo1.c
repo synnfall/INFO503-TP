@@ -7,16 +7,16 @@
 
 int main()
 {
-    FILE* f1 = fopen("./monotonie_1.txt", "r");
-    FILE* f2 = fopen("./monotonie_2.txt", "r");
-    FILE* f3 = fopen("./monotonie_3.txt", "r");
-    FILE* f4 = fopen("./monotonie_4.txt", "r");
-    FILE* f5 = fopen("./monotonie_5.txt", "r");
-    FILE* f6 = fopen("./monotonie_6.txt", "r");
-    FILE* f7 = fopen("./monotonie_7.txt", "r");
-    FILE* f8 = fopen("./monotonie_8.txt", "r");
-    FILE* f9 = fopen("./monotonie_9.txt", "r");
-    FILE* f10 = fopen("./monotonie_10.txt", "r");
+    FILE* f1 = fopen("./monotonies/monotonie_1.txt", "r");
+    FILE* f2 = fopen("./monotonies/monotonie_2.txt", "r");
+    FILE* f3 = fopen("./monotonies/monotonie_3.txt", "r");
+    FILE* f4 = fopen("./monotonies/monotonie_4.txt", "r");
+    FILE* f5 = fopen("./monotonies/monotonie_5.txt", "r");
+    FILE* f6 = fopen("./monotonies/monotonie_6.txt", "r");
+    FILE* f7 = fopen("./monotonies/monotonie_7.txt", "r");
+    FILE* f8 = fopen("./monotonies/monotonie_8.txt", "r");
+    FILE* f9 = fopen("./monotonies/monotonie_9.txt", "r");
+    FILE* f10 = fopen("./monotonies/monotonie_10.txt", "r");
 
     FILE* cible = fopen("./res.txt", "w");
     if (!f1 || !f2 || !f3 || !f4 || !f5 || !f6 || !f7 || !f8 || !f9 || !f10 || !cible)
@@ -62,6 +62,7 @@ int main()
     
     while (!estTasVide(t))
     {
+        afficherTas(t);
         noeud sortie = retireMinTas(&t);
         fprintf(cible, "%d\n", sortie.val);
     }
